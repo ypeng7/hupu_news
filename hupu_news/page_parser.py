@@ -12,13 +12,16 @@
 @brief:
 """
 __author__ = "Yue Peng"
+import time
 
 from urllib import request
 
 from bs4 import BeautifulSoup
 
 
-favourite_team = ["勇士"]
+#  favourite_team = ["勇士", "火箭", "湖人"]
+favourite_team = ["湖人"]
+reading_time = 60
 
 
 def get_html(url):
@@ -62,6 +65,9 @@ def main():
             for team in favourite_team:
                 if team in title:
                     print(content)
+                    # Reading time a minute
+                    time.sleep(reading_time)
+                    print("================"*2)
 
 
 if __name__ == "__main__":
