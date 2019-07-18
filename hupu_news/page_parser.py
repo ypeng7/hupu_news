@@ -7,11 +7,12 @@
 @author: Yue Peng
 @email: yuepaang@gmail.com
 @date: 2019-06-15 01:51:27
-@modified:
+@modified: 2019-07-18T23:17:25
 
 @brief:
 """
 __author__ = "Yue Peng"
+import sys
 import time
 
 from urllib import request
@@ -20,8 +21,9 @@ from bs4 import BeautifulSoup
 
 
 #  favourite_team = ["勇士", "火箭", "湖人"]
-favourite_team = ["湖人"]
-reading_time = 60
+argv = sys.argv
+favourite_team = [argv[1]]
+reading_time = 20
 
 
 def get_html(url):
@@ -51,8 +53,6 @@ def news_content(url):
         ".headline")[0].get_text(strip=True).encode('utf-8')
     content = soup.select(
         ".artical-main-content")[0].get_text(strip=True).encode('utf-8')
-    #  print(title.decode("utf-8"))
-    #  print(content.decode("utf-8"))
     return title.decode("utf-8"), content.decode("utf-8")
 
 
